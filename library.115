@@ -1,73 +1,77 @@
-local library = {}
+
 
 -- misc
 
-function library:msg(text)
+function msg(text)
     game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(text, "All")
 end
 
-function library:rj()
-    library:msg("rejoining")
+function rj()
+    msg("rejoining")
     game:GetService'TeleportService':TeleportToPlaceInstance(game.PlaceId,game.JobId,game:GetService'Players'.LocalPlayer)
+end
+
+function msgbox(text, caption, flags)
+    messagebox(text, caption, flags)
 end
 
 
 -- character related
 
-function library:air()
+function air()
     local plrcrd = game.Players.LocalPlayer.Character.HumanoidRootPart
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(plrcrd.Position.X, 50, plrcrd.Position.Z)
     wait(0.25)
     game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
 end
 
-function library:unair()
+function unair()
     game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
 end
 
 -- fun cmds
 
-function library:dance()
+function dance()
     game:GetService("Players"):Chat("/e dance")
 end
 
-function library:d1()
+function d1()
     game:GetService("Players"):Chat("/e dance1")
 end
 
-function library:d2()
+function d2()
     game:GetService("Players"):Chat("/e dance2")
 end
 
-function library:d3()
+function d3()
     game:GetService("Players"):Chat("/e dance3")
 end
 
-function library:cheer()
+function cheer()
     game:GetService("Players"):Chat("/e cheer")
 end
 
-function library:wave()
+function wave()
     game:GetService("Players"):Chat("/e wave")
 end
 
-function library:point()
+function point()
     game:GetService("Players"):Chat("/e point")
 end
 
-function library:laugh()
+function laugh()
     game:GetService("Players"):Chat("/e laugh")
 end
 
 -- performance
 
-function library:performance()
+function performance()
     game:GetService("RunService"):Set3dRenderingEnabled(false)
     game:service"RunService":SetRobloxGuiFocused(true)
     setfpscap(10)
 end
 
-function library:unperformance()
+function unperformance()
     game:GetService("RunService"):Set3dRenderingEnabled(true)
     game:service"RunService":SetRobloxGuiFocused(false)
     setfpscap(360)    
