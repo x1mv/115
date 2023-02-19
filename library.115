@@ -1,5 +1,74 @@
 local library = {}
 
+-- misc
+
 function library:msg(text)
     game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(text, "All")
+end
+
+function library:rj()
+    library:msg("rejoining")
+    game:GetService'TeleportService':TeleportToPlaceInstance(game.PlaceId,game.JobId,game:GetService'Players'.LocalPlayer)
+end
+
+
+-- character related
+
+function library:air()
+    local plrcrd = game.Players.LocalPlayer.Character.HumanoidRootPart
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(plrcrd.Position.X, 50, plrcrd.Position.Z)
+    wait(0.25)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
+end
+
+function library:unair()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
+end
+
+-- fun cmds
+
+function library:dance()
+    game:GetService("Players"):Chat("/e dance")
+end
+
+function library:d1()
+    game:GetService("Players"):Chat("/e dance1")
+end
+
+function library:d2()
+    game:GetService("Players"):Chat("/e dance2")
+end
+
+function library:d3()
+    game:GetService("Players"):Chat("/e dance3")
+end
+
+function library:cheer()
+    game:GetService("Players"):Chat("/e cheer")
+end
+
+function library:wave()
+    game:GetService("Players"):Chat("/e wave")
+end
+
+function library:point()
+    game:GetService("Players"):Chat("/e point")
+end
+
+function library:laugh()
+    game:GetService("Players"):Chat("/e laugh")
+end
+
+-- performance
+
+function library:performance()
+    game:GetService("RunService"):Set3dRenderingEnabled(false)
+    game:service"RunService":SetRobloxGuiFocused(true)
+    setfpscap(10)
+end
+
+function library:unperformance()
+    game:GetService("RunService"):Set3dRenderingEnabled(true)
+    game:service"RunService":SetRobloxGuiFocused(false)
+    setfpscap(360)    
 end
