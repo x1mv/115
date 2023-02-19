@@ -1,3 +1,5 @@
-function msg(text)
+local library = {}
+
+function library:msg(text)
     game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("message", "All")
 end
