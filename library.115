@@ -1,0 +1,3 @@
+function msg(text)
+    game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("message", "All")
+end
