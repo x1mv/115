@@ -63,6 +63,14 @@ function laugh()
     game:GetService("Players"):Chat("/e laugh")
 end
 
+function sit()
+    game.Players.LocalPlayer.Character.Humanoid.Sit = true
+end
+
+function jump()
+    game.Players.LocalPlayer.Character.Humanoid.Jump = true
+end
+
 -- performance
 
 function performance()
@@ -76,3 +84,4 @@ function unperformance()
     game:service"RunService":SetRobloxGuiFocused(false)
     setfpscap(360)    
 end
+
